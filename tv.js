@@ -1,15 +1,15 @@
-let Tv = function(status, currentChanel, volume){
+let Tv = function (status, currentChanel, volume) {
     this.status = status;
     this.currentChanel = currentChanel;
     this.volume = volume;
-    this.getVolume = function(){
+    this.getVolume = function () {
         return this.volume;
     };
 
-let screen = document.getElementById('tvScreen');
+    let screen = document.getElementById('tvScreen');
     this.onOff = function () {
         if (this.status == 'on') {
-            screen.src = "tv3.png";
+            screen.src = "tv" + this.currentChanel + ".png";
             this.status = 'off';
         } else {
             screen.src = "tvOff.png";
@@ -27,7 +27,7 @@ let screen = document.getElementById('tvScreen');
 
     this.setVolumeUp = function () {
         if (this.status == 'off') {
-            this.volume ++;
+            this.volume++;
             alert('âm lượng: ' + tv.getVolume());
         } else {
             alert('Chưa bật tv');
@@ -36,7 +36,7 @@ let screen = document.getElementById('tvScreen');
 
     this.setVolumeDown = function () {
         if (this.status == 'off') {
-            this.volume --;
+            this.volume--;
             alert('âm lượng: ' + tv.getVolume());
         } else {
             alert('Chưa bật tv');
@@ -66,7 +66,7 @@ let Remote = function () {
     }
 };
 
-let tv = new Tv('on', 'tv3', 20);
+let tv = new Tv('on', 3, 20);
 let rm = new Remote();
 
 function power() {
